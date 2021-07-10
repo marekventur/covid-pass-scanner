@@ -45,10 +45,8 @@ const useChangeDetection = (data, duration) => {
   const lastData = useRef(null);
   const [hasChanged, setHasChanged] = useState(false);
   const asJson = JSON.stringify(data);
-  console.log(asJson);
 
   useEffect(() => {
-    console.log(asJson, lastData);
     if (asJson !== lastData.current) {
       lastData.current = asJson;
       setHasChanged(true);
@@ -70,7 +68,7 @@ const parseData = (data) => {
     const stringData = data.slice(4);
     const base45decodedData = base45.decode(stringData);
     const uncompressedData = pako.inflate(base45decodedData);
-
+    
     const tags = { 18: data => data };
 
     /* eslint-disable no-unused-vars */
@@ -91,7 +89,7 @@ const parseData = (data) => {
     }
   } catch (e) {
     console.error(e);
-    return e;
+    return new Error(e);
   }
 }
 
@@ -105,7 +103,7 @@ export const Result = ({
   }
   
   return <div className={`result ${hasChanged ? "result--has-changed" : ""}`}>
-    {(parseData instanceof Error) 
+    {(parsedData instanceof Error) 
       ? <ResultError error={parsedData} />
       : <ResultData {...parsedData} />
     }
@@ -145,5 +143,5 @@ const ResultData = ({ data, humanReadable, code }) => {
 }
 
 const ResultError = () => {
-  return <div className="error">Invalid vaccination code</div>
+  return <div className="error">Invalid code</div>
 }

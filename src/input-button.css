@@ -1,0 +1,31 @@
+.input-button {
+  font-size: 1em;
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-right: 10px;
+  
+  flex-direction: row;
+  border-radius: 2px;
+}
+
+.input-button input {
+  border: none;
+  background: none;
+  width: 0;
+  transition: all 300ms;
+  padding: 0;
+}
+
+.input-button button {
+  padding: 5px 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.input-button--visible input {
+  width: 200px;
+  padding-left: 5px;
+}

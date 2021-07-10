@@ -38,13 +38,22 @@ header {
   top: 0;
   left: 0;
   right: 0;
+}
 
+header .bar {
   padding: 10px;
   
   font-size: 1em;
   text-align: center;
   background: rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+header .actions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 header h1 {

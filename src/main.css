@@ -1,0 +1,118 @@
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+.app {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+}
+
+.viewport {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+#viewport-scanner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 10px;
+  
+  font-size: 1em;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header p {
+  line-height: 1.6em;
+}
+
+header button {
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+header .show-more {
+  height: 0px;
+  overflow: hidden;
+}
+
+header .show-more--expanded {
+  height: auto;
+}
+
+.result {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 10px; 
+  background: rgba(255, 255, 255, 1);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+
+  transition: all 300ms;
+}
+
+.result.result--has-changed {
+  padding-top: 30px;
+  background: rgba(234, 218, 17, 1);
+}
+
+.result h2 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.result dt {
+  float: left;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.result .key--bad {
+  color: #c30000;
+  font-weight: bold;
+}
+
+.result button.show-details {
+  float: right;
+  padding: 5px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.result pre.details {
+  clear: both;
+  font-family: monospace;
+  max-height: 50vh;
+  overflow  : scroll;
+  background: white;
+}

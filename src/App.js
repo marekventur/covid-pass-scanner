@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './reset.css';
+import './main.css';
+import { useState } from "react";
+import { useQrScanner } from './use-qr-scanner';
+import { Result } from "./result";
 
 function App() {
+  const [showMore, setShowMore] = useState(false);
+  const { data } = useQrScanner({ id: "viewport-scanner" });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="app">
+
+      <header>
+        <h1>Covid Pass Scanner</h1>
+        <p>Hold code in middle of viewport.{" "}
+          <button onClick={() => setShowMore(!showMore)}>Learn more...</button>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className={`show-more ${showMore ? "show-more--expanded" : ""}`}>
+          This app acts as a QR code scanner for EU vaccination passports 
+          and displays the results below. You can use this to verify the 
+          validity of a given vaccine passport. 
+        </p>
       </header>
+
+      <Result data={data} />
+
+      <div className="viewport">
+        <div id="viewport-scanner" />
+      </div>
+
     </div>
   );
 }

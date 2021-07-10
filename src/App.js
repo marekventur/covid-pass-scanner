@@ -1,12 +1,12 @@
 import './reset.css';
 import './main.css';
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useQrScanner } from './use-qr-scanner';
 import { Result } from "./result";
 
 function App() {
   const [showMore, setShowMore] = useState(false);
-  const { data } = useQrScanner({ id: "viewport-scanner" });
+  const { data, previewRef } = useQrScanner({});
   return (
     <div className="app">
 
@@ -25,7 +25,7 @@ function App() {
       <Result data={data} />
 
       <div className="viewport">
-        <div id="viewport-scanner" />
+        <video ref={previewRef} />
       </div>
 
     </div>

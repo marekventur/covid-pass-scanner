@@ -16,12 +16,21 @@ html {
   top: 0;
   bottom: 0;
   z-index: -1;
+  overflow: hidden;
 }
 
-#viewport-scanner {
+.viewport video {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 50%; 
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%; 
+  min-height: 100%; 
+  width: auto; 
+  height: auto;
+  z-index: -1000; 
+  overflow: hidden;
 }
 
 header {

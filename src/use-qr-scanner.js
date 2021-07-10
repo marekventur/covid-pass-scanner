@@ -1,34 +1,28 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { BrowserQRCodeReader } from '@zxing/browser';
 
-export function useQrScanner({
-    id
-  }) {
+export const useQrScanner = ({
+    onError = console.error,
+  }) => {
     const [data, setData] = useState(null);
-    const instance = React.useRef(null);
-  
+    const [previewElement, setPreviewElement] = useState(null);
+
     useEffect(() => {
+      if (!previewElement) {
+        return 
+      }
       try {
         setData(null);
-        // eslint-disable-next-line
-        const scanner = new Html5Qrcode(id);
-        instance.current = scanner;
-        scanner
-          .start(
-            { facingMode: "environment" },
-            { formatsToSupport: [ /*Html5QrcodeSupportedFormats.QR_CODE*/ 0 ] },
-            data => {
-              setData(data)
-            },
-            error => { /* this happens if no code is found */ }
-          )
-          .catch(console.error);
-
-          // unmount
-          return () => scanner.stop();
+        let stop = () => {};
+        new BrowserQRCodeReader().decodeFromConstraints({ video: { facingMode: "environment" } }, previewElement, (result, error, controls) => {
+          if (result) {
+            setData(result.text);
+          }
+        }).then(reader => console.log(reader))
+        return () => stop();
       } catch (error) {
-        console.error(error)
+        onError(error);
       }
-    }, [id]);
-  
-    return { data };
+    }, [previewElement]);
+    return { data, previewRef: setPreviewElement };
   }

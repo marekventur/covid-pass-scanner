@@ -5,7 +5,7 @@ import { useQrScanner } from './use-qr-scanner';
 import { Result } from "./result";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaste, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faPaste, faUpload, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { InputTextButton, InputFileButton } from './input-button';
 import { BrowserQRCodeReader } from '@zxing/browser';
 
@@ -20,9 +20,13 @@ function App() {
       <header>
         <section className="bar">
           <h1>Covid Pass Scanner</h1>
-          <p>Hold code in middle of viewport.{" "}
-            <button onClick={() => setShowMore(!showMore)}>Learn more...</button>
-          </p>
+          <button 
+            className="more-info"
+            onClick={() => setShowMore(!showMore)}
+          >
+            <FontAwesomeIcon icon={faInfoCircle} title="Open text input"/>
+          </button>
+          
           <p className={`show-more ${showMore ? "show-more--expanded" : ""}`}>
             This app acts as a QR code scanner for EU vaccination passports 
             and displays the results below. You can use this to verify the 

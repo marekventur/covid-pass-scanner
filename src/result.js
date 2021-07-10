@@ -4,6 +4,10 @@ import pako from "pako";
 import { decode } from "cborg";
 import dccSchema from "./dcc-schema.json";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+
+
 const getPropertiesByRef = ref => 
   dccSchema["$defs"][ref.split("/")[2]].properties;
 
@@ -119,7 +123,12 @@ const ResultData = ({ data, humanReadable, code }) => {
   const isValid = Date.now() < code.expiry;
   const isFullyProtected = currentDose === totalDoses && daysAgo > 14;
   return <>
-    <button className="show-details" onClick={() => setShowDetails(!showDetails)}>{showDetails ? "Less details" : "More details"}</button>
+    <button className="show-details" onClick={() => setShowDetails(!showDetails)}>
+      {showDetails 
+        ? <FontAwesomeIcon icon={faMinusCircle} title="Less details"/>
+        : <FontAwesomeIcon icon={faPlusCircle} title="More details"/>
+      }
+    </button>
     {!showDetails && <dl>
       <dt>Name</dt>
       <dd>{data.nam?.gn} {data.nam?.fn}</dd>

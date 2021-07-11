@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/covid-pass-scanner/static/css/main.3793283e.chunk.css",
-    "main.js": "/covid-pass-scanner/static/js/main.5652a46b.chunk.js",
-    "main.js.map": "/covid-pass-scanner/static/js/main.5652a46b.chunk.js.map",
+    "main.js": "/covid-pass-scanner/static/js/main.6b28ba3a.chunk.js",
+    "main.js.map": "/covid-pass-scanner/static/js/main.6b28ba3a.chunk.js.map",
     "runtime-main.js": "/covid-pass-scanner/static/js/runtime-main.587a4ad5.js",
     "runtime-main.js.map": "/covid-pass-scanner/static/js/runtime-main.587a4ad5.js.map",
-    "static/js/2.136fddfd.chunk.js": "/covid-pass-scanner/static/js/2.136fddfd.chunk.js",
-    "static/js/2.136fddfd.chunk.js.map": "/covid-pass-scanner/static/js/2.136fddfd.chunk.js.map",
+    "static/js/2.83a8b54c.chunk.js": "/covid-pass-scanner/static/js/2.83a8b54c.chunk.js",
+    "static/js/2.83a8b54c.chunk.js.map": "/covid-pass-scanner/static/js/2.83a8b54c.chunk.js.map",
     "static/js/3.80a60c9a.chunk.js": "/covid-pass-scanner/static/js/3.80a60c9a.chunk.js",
     "static/js/3.80a60c9a.chunk.js.map": "/covid-pass-scanner/static/js/3.80a60c9a.chunk.js.map",
     "index.html": "/covid-pass-scanner/index.html",
     "static/css/main.3793283e.chunk.css.map": "/covid-pass-scanner/static/css/main.3793283e.chunk.css.map",
-    "static/js/2.136fddfd.chunk.js.LICENSE.txt": "/covid-pass-scanner/static/js/2.136fddfd.chunk.js.LICENSE.txt"
+    "static/js/2.83a8b54c.chunk.js.LICENSE.txt": "/covid-pass-scanner/static/js/2.83a8b54c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.587a4ad5.js",
-    "static/js/2.136fddfd.chunk.js",
+    "static/js/2.83a8b54c.chunk.js",
     "static/css/main.3793283e.chunk.css",
-    "static/js/main.5652a46b.chunk.js"
+    "static/js/main.6b28ba3a.chunk.js"
   ]
 }
